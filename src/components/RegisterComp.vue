@@ -88,20 +88,20 @@
         </vue-form>
         <button class="btn btn-info mt-3" @click="showTable">Show Info</button>
         
-        <TabComp  v-if="this.$store.state.isTableVisible"
+        <!-- <TabComp  v-if="this.$store.state.isTableVisible"
         :users="this.$store.state.users"
         :options="this.$store.state.options"
         v-model="userNationality"
-        />
+        /> -->
     </div>
 </template>
 <script>
-import TabComp from './TabComp.vue'
+//import TabComp from './TabComp.vue'
 
 export default {
     name:"RegisterComp",
     components:{
-        TabComp
+  //      TabComp
     },
     data(){
         return{
@@ -157,7 +157,8 @@ export default {
             }
         },
         showTable(){
-            this.$store.dispatch('showTable')
+            //this.$store.dispatch('showTable')
+            this.$router.push("/users-table")
         }
     }
 }

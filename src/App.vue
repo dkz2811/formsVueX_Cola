@@ -1,18 +1,17 @@
 <template>
   <div id="app">
     <HeaderComp titulo="Entrega Vue Cli Forms"/>
-    <RegisterComp />
+    <router-view/>
   </div>
 </template>
 
 <script>
 import HeaderComp from './components/HeaderComp.vue';
-import RegisterComp from './components/RegisterComp.vue';
+
 export default {
   name: 'App',
   components: {
     HeaderComp,
-    RegisterComp,
   }
 }
 </script>

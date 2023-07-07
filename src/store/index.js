@@ -49,6 +49,7 @@ export default new Vuex.Store({
     },
     getUsers: (state) => { console.log("getUsers: ", state.users ); return state.users },
     getisTableVisible: (state) => { return state.isTableVisible },
+    getOptions: (state) => { console.log("getOptions: ", state.options); return state.options },
   },
   mutations: {
     updateUsers: (state, payload) => {console.log("updateUsers: ", payload), state.users = payload },
@@ -89,7 +90,5 @@ export default new Vuex.Store({
     showTable: (context) => {  
       context.commit('showTable', !context.getters.getisTableVisible ) }
     },
-    modules: {
-    }
   })
   

@@ -23,27 +23,17 @@
     </td>
   </tr>
 </table>
+<button class="btn btn-success" @click="goBack()" >Back to Register</button>
 </div>
 </template>
 <script>
+
 export default {
   name: "TabComp.vue",
-  props:{
-    users:{
-      type: Array,
-      required: true
-    },
-    value:{
-      type:String,
-      required: false
-    },
-    options:{
-      type:Array,
-      required:true
-    },
-  },
   data(){
     return {
+      options: this.$store.state.options,
+      users: this.$store.state.users,
     }
   },
   methods:{
@@ -56,10 +46,15 @@ export default {
     },
     deleteUser(email){
       this.$store.dispatch('deleteUser', email)
-      
+      this.users = this.$store.getters.getUsers
     },
     inputHandler(event){
       this.$store.dispatch('updateUser', {email: event.target.id,nationality: event.target.value})
+      this.options = this.$store.getters.getOptions 
+      this.users = this.$store.getters.getUsers
+    },
+    goBack(){
+      this.$router.push("/")
     }
   }
 }
